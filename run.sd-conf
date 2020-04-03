@@ -1,0 +1,16 @@
+export PATH=$PATH:/home/saurav/tool/aarch64-linux-android-4.9/bin
+export CROSS_COMPILE=aarch64-linux-android-
+export ARCH=arm64
+export SUBARCH=arm64
+export DTC_EXT=dtc
+export CC=clang-10
+export CLANG_TRIPLE=aarch64-linux-gnu-
+
+
+
+rm -rf ../out/ 
+mkdir -p ../out 
+make O=../out/ lineageos_RMX1851_defconfig
+#./scripts/config --file out/.config -e BUILD_ARM64_DT_OVERLAY
+#./scripts/config --file out/.config --disable CONFIG_CC_STACKPROTECTOR_STRONG
+make O=../out/   -j4
